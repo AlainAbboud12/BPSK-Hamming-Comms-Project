@@ -1,4 +1,4 @@
-import BPSK_final_short as BPSK_final
+import BPSK_final as BPSK_final
 
 
 def text_to_bits(text):
