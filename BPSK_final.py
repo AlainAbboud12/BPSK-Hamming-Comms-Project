@@ -70,6 +70,12 @@ def noise_filtering1(noise_std, data):
     decoded_bits = decode_bits(guess)
     return bits_to_text(decoded_bits)
 
+def noise_filtering(noise_std, data):
+    """No hammig encode/decode, just modulate -> add noise -> demodulate."""
+    signal = modulate(data)
+    noisy_signal = add_noise(signal, noise_std)
+    guess = demodulate(noisy_signal, len(data))
+    return bits_to_text(guess)
 
 # if __name__ == "__main__":
 #     noiselvl = numpy.linspace(0, 10, 20)
